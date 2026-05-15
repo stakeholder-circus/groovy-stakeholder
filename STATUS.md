@@ -1,24 +1,26 @@
 # groovy-stakeholder Status
 
-- Role: selected next-20 local-only scaffold for Groovy
-- Parity class: full-parity
-- State: scaffold-ready-local-only
-- Rewrite completeness: 12%
-- Functionality completeness: 3%
+- Role: Groovy deterministic-first parity target
+- Parity class: full-parity, deterministic tranche C
+- State: tranche-c-implemented-local-only
+- Rewrite completeness: 45%
+- Functionality completeness: 38%
 - Branch: `main`
 - Origin: `git@github.com:stakeholder-circus/groovy-stakeholder.git`
-- Upstream: `https://github.com/giacomo-b/rust-stakeholder`
+- Upstream reference: `https://github.com/giacomo-b/rust-stakeholder`
 
-## Blockers
-- Implementation has not started.
-- Full live-provider/runtime support is deferred to the second-pass provider rollout wave.
-- Publication is blocked until the publication/governance wave completes and remote access is available.
+## Complete in tranche C
+- Groovy CLI replaces the Rust scaffold.
+- `--list-values`, `--focus-family`, `--output-format text|json`, `--seed`, and `--experimental-provider` are implemented.
+- Classic-six and modern-core families have dedicated deterministic renderers.
+- Later families produce explicit grouped fallback JSON events.
+- Same-seed JSON output is covered by native validation.
+
+## Remaining blockers
+- Live provider/runtime support is intentionally fail-fast.
+- Later family dedicated parity is deferred.
+- Publication remains blocked until governance and remote access are available.
 
 ## Next
-- Keep the scaffold baseline valid.
-- Add deterministic `classic-six + modern-core` implementation in the assigned tranche.
-- Keep grouped fallback for later families until the second wave.
-
-## Canonical references
-- `/Users/davidsupan/shareholder/stakeholder-core/docs/program/index.md`
-- `/Users/davidsupan/shareholder/stakeholder-core/docs/program/next-20-wave.md`
+- Add dedicated later-family implementations in the next tranche.
+- Add provider adapters only behind deterministic guardrails and documented fixtures.

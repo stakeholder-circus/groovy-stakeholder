@@ -1,9 +1,12 @@
-# Rust Docker
+# Groovy Docker
 
 ## Build and test
-- `docker build -t rust-stakeholder .`
-- `docker run --rm rust-stakeholder --list-values`
+```bash
+docker build -t groovy-stakeholder .
+docker run --rm groovy-stakeholder --list-values
+docker run --rm groovy-stakeholder --focus-family metrics --output-format json --seed 42
+```
 
 ## Rationale
-- The image compiles and tests the Rust baseline before packaging the runtime binary.
-- Docker is the reproducible Linux gate; host and CI matrices still cover native OS behavior.
+- The image runs the same dependency-free Groovy CLI as native validation.
+- Docker is the reproducible Linux smoke gate before committing or publishing.

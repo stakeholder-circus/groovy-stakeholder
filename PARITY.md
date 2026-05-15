@@ -1,15 +1,21 @@
 # Groovy Parity
 
-- Role: local-only full-parity target in the next-20 wave
-- Parity class: full-parity
+- Role: local-first full-parity target
+- Parity class: deterministic-first tranche C
 
 ## Review model
-- Rust remains the canonical source-of-truth.
-- `stakeholder-core` remains the behavioral contract.
-- This repo is deterministic-first for the initial tranche.
+- Rust remains the upstream behavioral source-of-truth.
+- `stakeholder-core` remains the shared contract and fixture authority.
+- This repo emits deterministic normalized JSON-lines for snapshot comparison.
+
+## Implemented
+- Dedicated classic-six family events.
+- Dedicated modern-core family events.
+- Grouped fallback for later families.
+- Same-seed stable JSON output.
+- Experimental provider fail-fast.
 
 ## Promotion prerequisites
-- Deterministic `classic-six + modern-core` implemented.
-- Native and Docker validation green.
-- `--list-values`, deterministic same-seed JSON, and experimental-provider fail-fast present.
-- Publication/governance wave complete and remote access available.
+- Native validation green.
+- Docker validation green.
+- Traceability rows kept current for any behavior promoted beyond fallback.

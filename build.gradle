@@ -1,0 +1,11 @@
+tasks.register('validate', Exec) {
+    group = 'verification'
+    description = 'Run deterministic Groovy tranche C validation.'
+    commandLine 'python3', 'scripts/validate_scaffold.py'
+}
+
+tasks.register('cliListValues', Exec) {
+    group = 'verification'
+    description = 'Print Groovy CLI supported values.'
+    commandLine 'groovy', 'src/main/groovy/stakeholder/StakeholderCli.groovy', '--list-values'
+}

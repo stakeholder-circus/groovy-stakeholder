@@ -1,6 +1,5 @@
-- Local path: `/Users/davidsupan/shareholder/groovy-stakeholder`
-- Default branch: `main`
-- Origin: `git@github.com:stakeholder-circus/groovy-stakeholder.git`
-- Upstream: `https://github.com/giacomo-b/rust-stakeholder`
-- Role: local-only next-20 scaffold
-- Provenance model: imported Rust history retained with derivative scaffold content layered on top
+# Remotes
+
+- Intended origin: `git@github.com:stakeholder-circus/groovy-stakeholder.git`
+- Upstream reference: `https://github.com/giacomo-b/rust-stakeholder`
+- This task does not push, attach upstream tracking, or change remotes.

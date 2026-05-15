@@ -1,5 +1,5 @@
 {
-  description = "groovy-stakeholder scaffold";
+  description = "groovy-stakeholder deterministic-first Groovy CLI";
   inputs.nixpkgs.url = "github:NixOS/nixpkgs/nixos-24.11";
   outputs = { self, nixpkgs }:
     let
@@ -11,7 +11,7 @@
         in {
           check = pkgs.writeShellApplication {
             name = "check";
-            runtimeInputs = [ pkgs.python3 ];
+            runtimeInputs = [ pkgs.python3 pkgs.groovy pkgs.gradle ];
             text = ''
               python3 scripts/validate_scaffold.py
             '';

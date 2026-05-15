@@ -1,5 +1,5 @@
-# Rust Experimental Surface
+# Groovy Experimental Surface
 
-- Live-provider concepts are modeled separately from the deterministic baseline.
-- OpenAI-compatible APIs, Anthropic APIs, and consumer-account adapters remain documentation and interface work until explicitly wired into a guarded runtime path.
-- Experimental additions must not change seeded parity fixtures by default.
+- Live providers are not enabled in tranche C.
+- `--experimental-provider` exits with status 2 and a clear fail-fast message.
+- Experimental additions must not change seeded deterministic fixtures by default.

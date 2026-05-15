@@ -1,5 +1,5 @@
-# Rust Language Specialties
+# Groovy Language Specialties
 
-- Rust is the canonical scheduler and generator baseline.
-- Shared domain concepts are modeled explicitly so follower languages can port stable semantics instead of re-deriving them.
-- Rust remains the reference for deterministic seeded behavior and normalized JSON semantics.
+- Groovy provides a compact CLI surface for deterministic parity events.
+- `LinkedHashMap` insertion order and `JsonOutput` keep normalized JSON stable for same-seed snapshots.
+- The implementation avoids runtime dependency resolution and provider calls in tranche C.

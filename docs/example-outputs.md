@@ -1,16 +1,21 @@
-# Rust Example Outputs
+# Groovy Example Outputs
 
-## Security
+## List values
 ```bash
-cargo run -- --dev-type security --jargon high --complexity extreme --alerts --seed 42
+groovy src/main/groovy/stakeholder/StakeholderCli.groovy --list-values
 ```
 
-## Blockchain
+## Dedicated family JSON
 ```bash
-cargo run -- --dev-type blockchain --framework "rollup-mcp-gateway" --output-format json --seed 7
+groovy src/main/groovy/stakeholder/StakeholderCli.groovy --focus-family metrics --output-format json --seed 42
 ```
 
-## Healthcare + charging + quantum crossover
+## Later-family grouped fallback
 ```bash
-cargo run -- --project "hospital-ocpp-quantum-control" --framework "mcp grpc" --jargon extreme --team --trace --seed 11
+groovy src/main/groovy/stakeholder/StakeholderCli.groovy --focus-family mcp-a2a-ops --output-format json --seed 7
+```
+
+## Experimental provider fail-fast
+```bash
+groovy src/main/groovy/stakeholder/StakeholderCli.groovy --experimental-provider
 ```

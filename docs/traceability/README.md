@@ -1,5 +1,5 @@
-# Rust Traceability
+# Groovy Traceability
 
-- Rust is the source-of-truth side of the rewrite program.
-- Behavioral changes here must be mirrored into `stakeholder-core` traceability, docs, and downstream packets.
-- Downstream repos should cite Rust file paths and the corresponding `stakeholder-core` rows when porting behavior.
+- Rust remains the source-of-truth side of the rewrite program.
+- This repo records Groovy behavior transfers with source rationale and parity classification.
+- Later families must stay marked as grouped fallback until dedicated behavior is ported.

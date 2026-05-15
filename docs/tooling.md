@@ -1,19 +1,14 @@
-# Rust Tooling
+# Groovy Tooling
 
 ## Commands
-- `cargo fmt`
-- `cargo clippy -- -D warnings`
-- `cargo build`
-- `cargo test`
-- `docker build -t rust-stakeholder .`
-- `docker run --rm rust-stakeholder --list-values`
-
-## Extended local checks
-- `cargo nextest run`
-- `cargo audit`
-- `cargo deny check`
-- `cargo udeps`
+```bash
+python3 scripts/validate_scaffold.py
+gradle validate
+groovy src/main/groovy/stakeholder/StakeholderCli.groovy --list-values
+docker build -t groovy-stakeholder .
+docker run --rm groovy-stakeholder --focus-family metrics --output-format json --seed 42
+```
 
 ## Notes
-- The Docker path is the reproducible Linux baseline.
-- Native CI should still cover macOS and Windows semantics.
+- No IDE-only workflow is required.
+- Gradle is intentionally a thin task runner so native validation remains local and deterministic.

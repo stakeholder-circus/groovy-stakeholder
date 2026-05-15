@@ -13,21 +13,20 @@ jobs:
         os: [ubuntu-latest, macos-latest, windows-latest]
     steps:
       - uses: actions/checkout@v4
-      - uses: dtolnay/rust-toolchain@stable
+      - uses: actions/setup-python@v5
         with:
-          components: rustfmt, clippy
-      - name: Format
-        run: cargo fmt --check
-      - name: Lint
-        run: cargo clippy -- -D warnings
-      - name: Test
-        run: cargo test
+          python-version: '3.x'
+      - uses: wtfjoke/setup-groovy@v2
+        with:
+          groovy-version: '4.0.26'
+      - name: Validate
+        run: python3 scripts/validate_scaffold.py
 
   docker:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
       - name: Build image
-        run: docker build -t rust-stakeholder .
+        run: docker build -t groovy-stakeholder .
       - name: Smoke test
-        run: docker run --rm rust-stakeholder --list-values
+        run: docker run --rm groovy-stakeholder --focus-family metrics --output-format json --seed 42
