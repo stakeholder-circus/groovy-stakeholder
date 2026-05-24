@@ -129,7 +129,12 @@ final class StakeholderCli {
             switch (arg) {
                 case '--help': opts.help = true; break
                 case '--list-values': opts.listValues = true; break
-                case '--experimental-provider': opts.experimentalProvider = true; break
+                case '--experimental-provider':
+                    opts.experimentalProvider = true
+                    if (i + 1 < args.size() && !args[i + 1].startsWith('--')) {
+                        i++
+                    }
+                    break
                 case '--focus-family': opts.focusFamily = requireValue(args, ++i, arg); break
                 case '--output-format': opts.outputFormat = requireValue(args, ++i, arg); break
                 case '--seed': opts.seed = parseSeed(requireValue(args, ++i, arg)); break
@@ -206,7 +211,7 @@ Options:
   --focus-family FAMILY          Emit only one generator family.
   --output-format text|json      Select text or normalized JSON-line output.
   --seed INTEGER                 Stable deterministic seed.
-  --experimental-provider        Fail fast; live providers are not enabled in tranche C.
+  --experimental-provider [NAME] Fail fast; live providers are not enabled in tranche C.
   --help                         Show this help.'''
     }
 
