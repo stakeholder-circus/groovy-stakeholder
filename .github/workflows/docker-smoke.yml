@@ -8,7 +8,7 @@ jobs:
   docker-smoke:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
       - run: docker build -t groovy-stakeholder .
       - run: docker run --rm groovy-stakeholder --list-values
       - run: docker run --rm groovy-stakeholder --focus-family mcp-a2a-ops --output-format json --seed 7
