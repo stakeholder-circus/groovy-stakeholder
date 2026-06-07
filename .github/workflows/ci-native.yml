@@ -12,7 +12,7 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.x'
-      - uses: wtfjoke/setup-groovy@v2
+      - uses: wtfjoke/setup-groovy@v3
         with:
           groovy-version: '4.0.26'
       - run: python3 scripts/validate_scaffold.py
