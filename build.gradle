@@ -3,10 +3,6 @@ plugins {
     id 'codenarc'
 }
 
-repositories {
-    mavenCentral()
-}
-
 dependencies {
     implementation 'org.apache.groovy:groovy:4.0.26'
     codenarc 'org.codenarc:CodeNarc-Groovy4:4.0.0'
