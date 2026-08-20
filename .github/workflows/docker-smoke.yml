@@ -2,13 +2,25 @@ name: docker-smoke
 
 on:
   push:
+    branches: [main]
   pull_request:
+
+permissions:
+  contents: read
 
 jobs:
   docker-smoke:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
       - run: docker build -t groovy-stakeholder .
       - run: docker run --rm groovy-stakeholder --list-values
       - run: docker run --rm groovy-stakeholder --focus-family mcp-a2a-ops --output-format json --seed 7
+      - name: Experimental provider fail-fast
+        run: |
+          set +e
+          docker run --rm groovy-stakeholder --experimental-provider local-demo
+          status=$?
+          test "$status" -eq 2

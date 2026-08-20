@@ -3,13 +3,15 @@ import subprocess
 import unittest
 from pathlib import Path
 
+from scripts.groovy_command import groovy_command
+
 ROOT = Path(__file__).resolve().parents[1]
 CLI = ROOT / "src/main/groovy/stakeholder/StakeholderCli.groovy"
 
 
 def run_cli(*args, check=True):
     result = subprocess.run(
-        ["groovy", str(CLI), *args],
+        groovy_command(CLI, *args),
         cwd=ROOT,
         text=True,
         stdout=subprocess.PIPE,
