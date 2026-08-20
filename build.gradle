@@ -1,3 +1,24 @@
+plugins {
+    id 'groovy'
+    id 'codenarc'
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.apache.groovy:groovy:4.0.26'
+    codenarc 'org.codenarc:CodeNarc-Groovy4:4.0.0'
+}
+
+codenarc {
+    configFile = file('config/codenarc/ruleset.groovy')
+    maxPriority1Violations = 0
+    maxPriority2Violations = 0
+    maxPriority3Violations = 0
+}
+
 tasks.register('validate', Exec) {
     group = 'verification'
     description = 'Run deterministic Groovy tranche C validation.'

@@ -1,0 +1,28 @@
+name: sast
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  schedule:
+    - cron: '19 3 * * 1'
+
+permissions:
+  contents: read
+
+jobs:
+  codenarc:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+      - uses: actions/setup-java@b6effb05e454b25005698d916606bdc6ffcbf961 # v5
+        with:
+          distribution: temurin
+          java-version: '21'
+      - uses: gradle/actions/setup-gradle@0723195856401067f7a2779048b490ace7a47d7c # v5
+        with:
+          gradle-version: '9.7.1'
+      - name: Run CodeNarc
+        run: gradle --no-daemon codenarcMain

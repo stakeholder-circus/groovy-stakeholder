@@ -4,6 +4,8 @@ import subprocess
 import sys
 from pathlib import Path
 
+from groovy_command import groovy_command
+
 ROOT = Path(__file__).resolve().parents[1]
 REQUIRED = [
     "README.md",
@@ -11,6 +13,7 @@ REQUIRED = [
     "PARITY.md",
     "GAPS.md",
     "AGENTS.md",
+    "scripts/groovy_command.py",
     "LICENSE",
     "src/main/groovy/stakeholder/StakeholderCli.groovy",
     "tests/test_cli.py",
@@ -25,9 +28,9 @@ REQUIRED = [
     ".github/dependabot.yml",
     ".github/workflows/actionlint.yml",
     ".github/workflows/dependency-review.yml",
-    ".github/workflows/ci.yml",
     ".github/workflows/ci-native.yml",
     ".github/workflows/docker-smoke.yml",
+    ".github/workflows/sast.yml",
     "flake.nix",
     "Dockerfile",
     "flake.lock",
@@ -48,8 +51,8 @@ def main():
     if shutil.which("groovy") is None:
         raise SystemExit("groovy executable is required for native validation")
     run(["python3", "-m", "unittest", "discover", "-s", "tests"])
-    run(["groovy", "src/main/groovy/stakeholder/StakeholderCli.groovy", "--list-values"])
-    run(["groovy", "src/main/groovy/stakeholder/StakeholderCli.groovy", "--focus-family", "metrics", "--output-format", "json", "--seed", "42"])
+    run(groovy_command("src/main/groovy/stakeholder/StakeholderCli.groovy", "--list-values"))
+    run(groovy_command("src/main/groovy/stakeholder/StakeholderCli.groovy", "--focus-family", "metrics", "--output-format", "json", "--seed", "42"))
     print("groovy tranche C validation passed")
 
 
